@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/normalize.css/normalize.css";
+@import "../node_modules/@angular/material/core/theming/prebuilt/indigo-pink";
+
+
+@import "assets/styles/variables";
+
+@import "assets/styles/structure";
+@import "assets/styles/defaults";

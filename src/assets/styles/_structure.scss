@@ -1,0 +1,13 @@
+.flex-block {
+  display: flex !important;
+  flex-direction: row;
+}
+
+.flex-block-column {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.flex {
+  flex: 1;
+}
