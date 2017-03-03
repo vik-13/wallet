@@ -11,6 +11,7 @@ import {appRoutes} from "./app.routes";
 import {ZonesModule} from "./zones/zones.module";
 import {AuthModule} from "./components/auth/auth.module";
 import {DashboardModule} from "./components/dashboard/dashboard.module";
+import {WalletModule} from "./wallet/wallet.module";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVdLc4U8vkAMhjDPn5Yu3wrYnhPw5T8CE",
@@ -37,6 +38,8 @@ const firebaseAuthConfig = {
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     MaterialModule.forRoot(),
+
+    WalletModule,
 
     AuthModule,
     DashboardModule,

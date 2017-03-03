@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<div class="internal-page">
+  <md-toolbar color="primary">
+    <span>Wallet</span>
+    <span class="flex"></span>
+    <span>Sign out</span>
+  </md-toolbar>
+  <md-sidenav-container>
+    <md-sidenav mode="side" opened="true">
+      <md-nav-list>
+        <md-list-item>Dashboard</md-list-item>
+        <md-list-item>All</md-list-item>
+        <md-list-item>Incomes</md-list-item>
+        <md-list-item>Outcomes</md-list-item>
+        <md-list-item>Optimizations</md-list-item>
+      </md-nav-list>
+    </md-sidenav>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </md-sidenav-container>
+</div>
