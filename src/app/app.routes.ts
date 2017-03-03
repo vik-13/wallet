@@ -7,6 +7,8 @@ import {InternalZoneComponent} from "./zones/internal-zone/internal-zone.compone
 import {InternalZoneActivation} from "./zones/internal-zone/internal-zone.activation";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {OutcomesComponent} from "./components/outcomes/outcomes.component";
+import {IncomesComponent} from "./components/incomes/incomes.component";
+import {PredictionsComponent} from "./components/predictions/predictions.component";
 
 export const appRoutes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -25,7 +27,9 @@ export const appRoutes: Routes = [
     canActivate: [InternalZoneActivation],
     children: [
       {path: 'dashboard', component: DashboardComponent},
-      {path: 'outcomes', component: OutcomesComponent}
+      {path: 'outcomes', component: OutcomesComponent},
+      {path: 'incomes', component: IncomesComponent},
+      {path: 'predictions', component: PredictionsComponent}
     ]
   },
   {path: '**', redirectTo:'/dashboard'}
