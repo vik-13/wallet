@@ -7,15 +7,17 @@
   <md-sidenav-container>
     <md-sidenav mode="side" opened="true">
       <md-nav-list>
-        <md-list-item>Dashboard</md-list-item>
-        <md-list-item>All</md-list-item>
-        <md-list-item>Incomes</md-list-item>
-        <md-list-item>Outcomes</md-list-item>
-        <md-list-item>Optimizations</md-list-item>
+        <a md-list-item routerLinkActive="active" [routerLink]="['/dashboard']">Dashboard</a>
+        <!--<a md-list-item routerLinkActive="active" [routerLink]="['/all']">All</a>-->
+        <a md-list-item routerLinkActive="active" [routerLink]="['/outcomes']">Outcomes</a>
+        <a md-list-item routerLinkActive="active" [routerLink]="['/incomes']">Incomes</a>
+        <a md-list-item routerLinkActive="active" [routerLink]="['/predictions']">Predictions</a>
       </md-nav-list>
     </md-sidenav>
     <div class="main-content">
       <router-outlet></router-outlet>
+
+      <add-coin></add-coin>
     </div>
   </md-sidenav-container>
 </div>
