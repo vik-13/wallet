@@ -14,7 +14,7 @@ export class AddCoinComponent {
   showDialog() {
     let dialogRef = this.dialog.open(AddDialogComponent);
     dialogRef.afterClosed().subscribe((params) => {
-      console.log('dialog is just closed');
+      //TODO: Implement add coin functionality...
     });
   }
 }

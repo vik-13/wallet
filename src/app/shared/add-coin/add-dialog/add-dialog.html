@@ -1,1 +1,12 @@
-Here should be the form for adding incomes/outcomes...
+<div class="add-coin-dialog">
+  <form #form="ngForm" (submit)="submit(form)" novalidate autocomplete="off">
+    <h2>Add a coin</h2>
+    <md-input-container>
+      <input mdInput ngModel name="coin" placeholder="Enter amount" required />
+      <md-hint align="end">Set '+' at start to make it income...</md-hint>
+    </md-input-container>
+    <div class="form-actions">
+      <button md-raised-button color="primary" type="submit">Add</button>
+    </div>
+  </form>
+</div>

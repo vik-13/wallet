@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {MdDialogRef} from "@angular/material";
 
 @Component({
   selector: 'add-dialog',
@@ -7,4 +8,9 @@ import {Component} from "@angular/core";
 })
 export class AddDialogComponent {
 
+  constructor(public dialogRef: MdDialogRef<AddDialogComponent>) {}
+
+  submit(form) {
+    this.dialogRef.close(form.value);
+  }
 }
