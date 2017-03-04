@@ -5,20 +5,22 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class AuthZoneActivation implements CanActivate{
-  constructor(private af: AngularFire, private router: Router) {}
+  isAuthorized: Observable<boolean>;
+  authSubscriber: any;
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    let isAuthorized: Observable<boolean>;
-
-    isAuthorized = new Observable((observer) => {
-      this.af.auth.subscribe((auth) => {
+  constructor(private af: AngularFire, private router: Router) {
+    this.isAuthorized = new Observable((observer) => {
+      this.authSubscriber = this.af.auth.subscribe((auth) => {
         if (auth) {
           this.router.navigate(['/dashboard']);
+          this.authSubscriber.unsubscribe();
         }
         observer.next(!auth);
       });
     });
+  }
 
-    return isAuthorized;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.isAuthorized;
   }
 }

@@ -4,7 +4,10 @@ import {InternalZoneComponent} from "./internal-zone/internal-zone.component";
 import {AuthZoneActivation} from "./auth-zone/auth-zone.activation";
 import {InternalZoneActivation} from "./internal-zone/internal-zone.activation";
 import {RouterModule} from "@angular/router";
-import {MdToolbarModule, MdSidenavModule, MdListModule} from "@angular/material";
+import {
+  MdToolbarModule, MdSidenavModule, MdListModule, MdInputModule, MdSelectModule,
+  MdButtonModule
+} from "@angular/material";
 import {AddCoinModule} from "../shared/add-coin/add-coin.module";
 
 @NgModule({
@@ -14,6 +17,9 @@ import {AddCoinModule} from "../shared/add-coin/add-coin.module";
     MdToolbarModule,
     MdSidenavModule,
     MdListModule,
+    MdInputModule,
+    MdSelectModule,
+    MdButtonModule,
 
     AddCoinModule
   ],
