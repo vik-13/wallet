@@ -1,10 +1,22 @@
 <div class="add-coin-dialog">
   <form #form="ngForm" (submit)="submit(form)" novalidate autocomplete="off">
     <h2>Add a coin</h2>
+    <div class="flex-block">
+      <md-input-container>
+        <input mdInput ngModel name="coin" placeholder="Enter amount" required />
+        <md-hint align="end">f.ex. 123.99</md-hint>
+      </md-input-container>
+      <md-select placeholder="Currency" name="currency" ngModel="usd">
+        <md-option [value]="'usd'">USD</md-option>
+        <md-option [value]="'uah'">PLN</md-option>
+        <md-option [value]="'uah'">UAH</md-option>
+      </md-select>
+    </div>
     <md-input-container>
-      <input mdInput ngModel name="coin" placeholder="Enter amount" required />
-      <md-hint align="end">Set '+' at start to make it income...</md-hint>
+      <input mdInput ngModel name="description" placeholder="Enter description" />
+      <md-hint align="end">f.ex. Flat, food, child...</md-hint>
     </md-input-container>
+    <md-slide-toggle ngModel name="income">Income</md-slide-toggle>
     <div class="form-actions">
       <button md-raised-button color="primary" type="submit">Add</button>
     </div>

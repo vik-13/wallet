@@ -15,15 +15,6 @@
       </md-nav-list>
     </md-sidenav>
     <div class="main-content">
-      <md-toolbar>
-        <md-input-container>
-          <input mdInput name="searchText" placeholder="Search"/>
-        </md-input-container>
-        <md-select placeholder="Time range">
-          <md-option [value]="'last_week'">Last week</md-option>
-          <md-option [value]="'last_month'">Last month</md-option>
-        </md-select>
-      </md-toolbar>
       <router-outlet></router-outlet>
 
       <add-coin></add-coin>
