@@ -1,7 +1,6 @@
 import {Component} from "@angular/core";
 import {MdDialog} from "@angular/material";
 import {AddDialogComponent} from "./add-dialog/add-dialog.component";
-import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {WalletService} from "../../wallet/wallet.service";
 
 @Component({
@@ -11,18 +10,16 @@ import {WalletService} from "../../wallet/wallet.service";
 })
 export class AddCoinComponent {
 
-  wallet: FirebaseListObservable<any>;
-
-  constructor(private af: AngularFire, private dialog: MdDialog, private walletService: WalletService) {
-    this.wallet = this.af.database.list('/users/' + this.walletService.getOwnerId() + '/wallet');
-  }
+  constructor(private dialog: MdDialog, private walletService: WalletService) {}
 
   showDialog() {
     let dialogRef = this.dialog.open(AddDialogComponent);
     dialogRef.afterClosed().subscribe((params) => {
-      params.created = (new Date()).getTime();
-      this.wallet.push(params);
-      console.log(params);
+      if (params) {
+        params.created = (new Date()).getTime();
+        this.walletService.add(params);
+        console.log(params);
+      }
     });
   }
 }
