@@ -9,6 +9,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class OutcomesComponent {
   data: any;
+  groupedData: any = [];
   groupBy: string = 'record';
 
   routeSubscriber: any;
@@ -24,8 +25,27 @@ export class OutcomesComponent {
   sync() {
     this.walletSubscriber && this.walletSubscriber.unsubscribe();
     this.walletSubscriber = this.walletService.wallet.subscribe((data) => {
+      let lastDate = '', tempData;
       this.data = data.filter((coin) => {
         return !coin.income ? coin : false;
+      });
+
+      this.groupedData = [];
+      data.forEach((record) => {
+        if (lastDate != record.date) {
+          lastDate = record.date;
+          tempData = {
+            date: lastDate,
+            amount: 0,
+            records: []
+          };
+          tempData.amount += +record.amount;
+          tempData.records.push(record);
+          this.groupedData.push(tempData);
+        } else {
+          tempData.amount += +record.amount;
+          tempData.records.push(record);
+        }
       });
     });
   }
