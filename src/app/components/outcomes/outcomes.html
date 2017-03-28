@@ -1,12 +1,16 @@
 <div class="inner-page">
   <div class="inner-container white-frame-0">
     <md-list>
-      <h3 md-subheader>Current Date</h3>
-      <md-list-item *ngFor="let coin of data">
-        <md-icon md-list-avatar>mood_bad</md-icon>
-        <h4 md-line>{{coin.amount}}</h4>
-        <p md-line> {{coin.description}} </p>
-      </md-list-item>
+      <ng-container *ngFor="let coin of data">
+        <h3 md-subheader>{{coin.date}}</h3>
+        <md-list-item>
+          <div md-line>
+            <span class="line-date">{{coin.date}}</span>
+            <span class="line-description">{{coin.description}}</span>
+            <span class="line-amount">-{{coin.amount}}</span>
+          </div>
+        </md-list-item>
+      </ng-container>
     </md-list>
   </div>
 </div>

@@ -8,10 +8,14 @@
     <md-sidenav mode="side" opened="true">
       <md-nav-list>
         <a md-list-item routerLinkActive="active" [routerLink]="['/dashboard']">Dashboard</a>
+        <h3 md-subheader>Outcomes by</h3>
         <!--<a md-list-item routerLinkActive="active" [routerLink]="['/all']">All</a>-->
-        <a md-list-item routerLinkActive="active" [routerLink]="['/outcomes']">Outcomes</a>
-        <a md-list-item routerLinkActive="active" [routerLink]="['/incomes']">Incomes</a>
-        <a md-list-item routerLinkActive="active" [routerLink]="['/predictions']">Predictions</a>
+        <a md-list-item routerLinkActive="active" [routerLink]="['/outcomes', 'record']">record</a>
+        <a md-list-item routerLinkActive="active" [routerLink]="['/outcomes', 'day']">day</a>
+        <a md-list-item routerLinkActive="active" [routerLink]="['/outcomes', 'month']">month</a>
+        <h3 md-subheader>Incomes</h3>
+        <a md-list-item routerLinkActive="active" [routerLink]="['/incomes']">List</a>
+        <!--<a md-list-item routerLinkActive="active" [routerLink]="['/predictions']">Predictions</a>-->
       </md-nav-list>
     </md-sidenav>
     <div class="main-content">

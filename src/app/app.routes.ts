@@ -27,7 +27,7 @@ export const appRoutes: Routes = [
     canActivate: [InternalZoneActivation],
     children: [
       {path: 'dashboard', component: DashboardComponent},
-      {path: 'outcomes', component: OutcomesComponent},
+      {path: 'outcomes/:groupBy', component: OutcomesComponent},
       {path: 'incomes', component: IncomesComponent},
       {path: 'predictions', component: PredictionsComponent}
     ]
