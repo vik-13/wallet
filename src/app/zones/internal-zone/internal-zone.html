@@ -2,7 +2,17 @@
   <md-toolbar color="primary">
     <span>Wallet</span>
     <span class="flex"></span>
-    <button md-button color="warn" (click)="signOut()">Sign out</button>
+    <div>
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>menu</md-icon>
+      </button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item (click)="signOut()">
+          <md-icon>input</md-icon>
+          <span>Sign out</span>
+        </button>
+      </md-menu>
+    </div>
   </md-toolbar>
   <md-sidenav-container>
     <md-sidenav mode="side" opened="true">

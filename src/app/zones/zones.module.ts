@@ -6,7 +6,7 @@ import {InternalZoneActivation} from "./internal-zone/internal-zone.activation";
 import {RouterModule} from "@angular/router";
 import {
   MdToolbarModule, MdSidenavModule, MdListModule, MdInputModule, MdSelectModule,
-  MdButtonModule
+  MdButtonModule, MdMenuModule, MdIconModule
 } from "@angular/material";
 import {AddCoinModule} from "../shared/add-coin/add-coin.module";
 
@@ -20,6 +20,8 @@ import {AddCoinModule} from "../shared/add-coin/add-coin.module";
     MdInputModule,
     MdSelectModule,
     MdButtonModule,
+    MdMenuModule,
+    MdIconModule,
 
     AddCoinModule
   ],

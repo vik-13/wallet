@@ -7,7 +7,6 @@ import {WalletService} from "../../../wallet/wallet.service";
   styleUrls: ['./day.scss']
 })
 export class DayComponent {
-  data: any;
   total: number = 0;
   groupedData: any = [];
 
@@ -21,9 +20,6 @@ export class DayComponent {
     this.walletSubscriber && this.walletSubscriber.unsubscribe();
     this.walletSubscriber = this.walletService.wallet.subscribe((data) => {
       let lastDate = '', tempData;
-      this.data = data.filter((coin) => {
-        return !coin.income ? coin : false;
-      });
 
       this.total = data.reduce((acc, record) => {
         return acc + +record.amount;
