@@ -6,6 +6,7 @@ import {
   MdChipsModule, MdSelectModule
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
+import {DateSelectModule} from "../date-select/date-select.module";
 
 @NgModule({
   imports: [
@@ -17,7 +18,9 @@ import {FormsModule} from "@angular/forms";
     MdInputModule,
     MdSlideToggleModule,
     MdChipsModule,
-    MdSelectModule
+    MdSelectModule,
+
+    DateSelectModule
   ],
   exports: [
     AddCoinComponent

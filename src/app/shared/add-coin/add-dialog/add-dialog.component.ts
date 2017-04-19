@@ -11,6 +11,7 @@ export class AddDialogComponent {
   constructor(public dialogRef: MdDialogRef<AddDialogComponent>) {}
 
   submit(form) {
-    this.dialogRef.close(form.value);
+    console.log(form.value);
+    //this.dialogRef.close(form.value);
   }
 }

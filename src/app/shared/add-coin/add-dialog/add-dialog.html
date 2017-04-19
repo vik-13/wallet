@@ -6,9 +6,9 @@
         <input mdInput ngModel name="amount" placeholder="Enter amount" required />
         <md-hint align="end">f.ex. 123.99</md-hint>
       </md-input-container>
-      <md-select placeholder="Currency" name="currency" ngModel="usd">
+      <md-select placeholder="Currency" name="currency" ngModel="pln">
         <md-option [value]="'usd'">USD</md-option>
-        <md-option [value]="'uah'">PLN</md-option>
+        <md-option [value]="'pln'">PLN</md-option>
         <md-option [value]="'uah'">UAH</md-option>
       </md-select>
     </div>
@@ -16,6 +16,7 @@
       <input mdInput ngModel name="description" placeholder="Enter description" />
       <md-hint align="end">f.ex. Flat, food, child...</md-hint>
     </md-input-container>
+    <date-select name="date" ngModel></date-select>
     <md-slide-toggle ngModel name="income">Income</md-slide-toggle>
     <div class="form-actions">
       <button md-raised-button color="primary" type="submit">Add</button>
