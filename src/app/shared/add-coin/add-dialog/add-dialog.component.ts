@@ -12,6 +12,6 @@ export class AddDialogComponent {
 
   submit(form) {
     console.log(form.value);
-    //this.dialogRef.close(form.value);
+    this.dialogRef.close(form.value);
   }
 }

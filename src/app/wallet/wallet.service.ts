@@ -40,7 +40,11 @@ export class WalletService {
   }
 
   subscribe() {
-    this.walletObservable = this.af.database.list('/users/' + this.ownerId + '/wallet');
+    this.walletObservable = this.af.database.list('/users/' + this.ownerId + '/wallet', {
+      query: {
+        orderByChild: 'created'
+      }
+    });
     this.walletSubscriber = this.walletObservable.subscribe((snapshot) => {
       this.wallet.next(snapshot);
     });

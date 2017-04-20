@@ -17,10 +17,8 @@ export class AddCoinComponent {
     let dialogRef = this.dialog.open(AddDialogComponent);
     dialogRef.afterClosed().subscribe((params) => {
       if (params) {
-        params.created = (new Date()).getTime();
-        params.date = moment().format('YYYY-MM-DD');
+        params.created = +moment(params.date);
         this.walletService.add(params);
-        console.log(params);
       }
     });
   }

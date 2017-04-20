@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from "@angular/core";
+import {Component, forwardRef} from "@angular/core";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import * as moment from 'moment';
 
@@ -16,7 +16,7 @@ import * as moment from 'moment';
 })
 
 export class DateSelectComponent implements ControlValueAccessor{
-  @Input() _date: string = moment().format('YYYY-MM-DD');
+  _date: string = moment().format('YYYY-MM-DD');
 
   propagateChange = (_: any) => {};
 
@@ -48,6 +48,9 @@ export class DateSelectComponent implements ControlValueAccessor{
       {code: 10, name: 'November'},
       {code: 11, name: 'December'}];
     this.years = [2016, 2017, 2018, 2019, 2020];
+
+    this.selectedDate.year = moment(this._date).year();
+    this.date = this._date;
   }
 
   get date() {
@@ -56,16 +59,18 @@ export class DateSelectComponent implements ControlValueAccessor{
 
   set date(date) {
     this._date = date;
+    this.selectedDate.day = moment(this._date).date();
+    this.selectedDate.month = moment(this._date).month();
+    this.selectedDate.year = moment(this._date).year();
     this.propagateChange(this._date);
   }
 
   changeDate() {
     this.date = moment(this.selectedDate).format('YYYY-MM-DD');
-    console.log(moment(this.selectedDate).format('YYYY-MM-DD'));
   }
 
   writeValue(date: any) {
-    if (date !== undefined) {
+    if (date) {
       this.date = date;
     }
   }
