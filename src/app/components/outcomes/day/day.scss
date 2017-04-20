@@ -14,14 +14,3 @@
     background: white;
   }
 }
-
-.menu-icon {
-  visibility: hidden;
-  margin-left: 8px;
-}
-
-.mat-list-item:hover {
-  .menu-icon {
-    visibility: visible;
-  }
-}

@@ -1,8 +1,5 @@
 import {Component} from "@angular/core";
 import {WalletService} from "../../../wallet/wallet.service";
-import {MdDialog} from "@angular/material";
-import {RecordDialogComponent} from "../../../shared/record-dialog/record-dialog.component";
-import * as moment from 'moment';
 
 @Component({
   selector: 'day',
@@ -15,7 +12,7 @@ export class DayComponent {
 
   walletSubscriber: any;
 
-  constructor(private dialog: MdDialog, private walletService: WalletService) {
+  constructor(private walletService: WalletService) {
     this.sync();
   }
 
@@ -46,22 +43,6 @@ export class DayComponent {
         }
       });
     });
-  }
-
-  edit(record) {
-    let dialogRef = this.dialog.open(RecordDialogComponent);
-    dialogRef.componentInstance.data = record;
-    dialogRef.afterClosed().subscribe((params) => {
-      if (params) {
-        params.created = +moment(params.date);
-        this.walletService.update(record.$key, params);
-      }
-    });
-
-  }
-
-  remove(record) {
-    this.walletService.remove(record.$key);
   }
 
   ngOnDestroy() {

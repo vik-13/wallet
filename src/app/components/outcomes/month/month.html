@@ -7,11 +7,7 @@
         <span>Total per month: {{group.amount}}</span>
       </h3>
       <md-list-item *ngFor="let record of group.records">
-        <div class="flex-block" md-line>
-          <span>{{record.description}}</span>
-          <span class="flex"></span>
-          <span>{{record.amount}}</span>
-        </div>
+        <record-line [record]="record"></record-line>
       </md-list-item>
       <md-divider></md-divider>
     </md-list>
