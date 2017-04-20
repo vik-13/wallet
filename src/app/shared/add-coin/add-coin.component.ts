@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 import {MdDialog} from "@angular/material";
-import {AddDialogComponent} from "./add-dialog/add-dialog.component";
 import {WalletService} from "../../wallet/wallet.service";
 import * as moment from 'moment';
+import {RecordDialogComponent} from "../record-dialog/record-dialog.component";
 
 @Component({
   selector: 'add-coin',
@@ -14,7 +14,7 @@ export class AddCoinComponent {
   constructor(private dialog: MdDialog, private walletService: WalletService) {}
 
   showDialog() {
-    let dialogRef = this.dialog.open(AddDialogComponent);
+    let dialogRef = this.dialog.open(RecordDialogComponent);
     dialogRef.afterClosed().subscribe((params) => {
       if (params) {
         params.created = +moment(params.date);
