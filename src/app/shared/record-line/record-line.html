@@ -1,7 +1,7 @@
 <div class="flex-block align-center" md-line>
   <span>{{record.description}}</span>
   <span class="flex"></span>
-  <span>{{record.amount}}</span>
+  <span>{{record.amount | number:'1.2-2'}}</span>
   <button md-icon-button class="menu-icon" [mdMenuTriggerFor]="menu">
     <md-icon>more_vert</md-icon>
   </button>

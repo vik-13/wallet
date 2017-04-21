@@ -7,16 +7,53 @@ import {WalletService} from "../../wallet/wallet.service";
   styleUrls: ['./dashboard.scss']
 })
 export class DashboardComponent {
-  data: any;
+  data: any = {
+    total: 0,
+    groupedByMonths: []
+  };
+
 
   walletSubscriber: any;
 
   constructor(private walletService: WalletService) {
+    this.sync();
+  }
+
+  sync() {
+    this.walletSubscriber && this.walletSubscriber.unsubscribe();
     this.walletSubscriber = this.walletService.wallet.subscribe((data) => {
-      this.data = data.map((coin) => {
-        return coin;
+      let lastDate = '', date, tempData;
+
+      this.data.total = data.reduce((acc, record) => {
+        return acc + +record.amount;
+      }, 0);
+
+      this.data.groupedByMonths = [];
+      data.forEach((record) => {
+        date = record.date.substr(0, 7);
+        if (lastDate != date) {
+          lastDate = date;
+          tempData = {
+            date: date,
+            amount: 0,
+            records: []
+          };
+          tempData.amount += +record.amount;
+          tempData.records.push(record);
+          this.data.groupedByMonths.push(tempData);
+        } else {
+          tempData.amount += +record.amount;
+          tempData.records.push(record);
+        }
       });
-      console.log('incomes', this.data);
+
+      if (this.data.groupedByMonths.length) {
+        this.data.lastMonth = this.data.groupedByMonths[this.data.groupedByMonths.length - 1].amount
+      } else {
+        this.data.lastMonth = 0;
+      }
+
+      console.log(this.data);
     });
   }
 
